@@ -1,12 +1,10 @@
-<!-- views/profile.ejs -->
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-	<title>Node Authentication</title>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-	<style>
-				body {
+	<meta name="viewport" content="width=320, initial-scale=1"/>
+	<title>jsmpeg streaming</title>
+	<style type="text/css">
+		body {
 			background: #333;
 			text-align: center;
 			margin-top: 10%;
@@ -20,31 +18,10 @@
 	</style>
 </head>
 <body>
-<div class="container">
-
-	<div class="page-header text-center">
-		<h1><span class="fa fa-anchor"></span> Profile Page</h1>
-		<a href="/logout" class="btn btn-default btn-sm">Logout</a>
-	</div>
-
-	<div class="row">
-
-		<!-- LOCAL INFORMATION -->
-		<div class="col-sm-6">
-			<div class="well">
-				<h3><span class="fa fa-user"></span> Local</h3>
-
-					<p>
-						<strong>id</strong>: <%= user._id %><br>
-						<strong>email</strong>: <%= user.local.email %><br>
-						<strong>password</strong>: <%= user.local.password %>
-					</p>
-
-			</div>
-		</div>
-
-		<div class="col-sm-6">
-
+	<!-- The Canvas size specified here is the "initial" internal resolution. jsmpeg will
+		change this internal resolution to whatever the source provides. The size the
+		canvas is displayed on the website is dictated by the CSS style.
+	-->
 	<canvas id="videoCanvas" width="640" height="480">
 		<p>
 			Please use a browser that supports the Canvas Element, like
@@ -53,12 +30,6 @@
 			<a href="http://www.apple.com/safari/">Safari</a> or Internet Explorer 10
 		</p>
 	</canvas>
-</div>
-	</div>
-
-</div>
-
-
 	<script type="text/javascript" src="jsmpg.js"></script>
 	<script type="text/javascript">
 		// Setup the WebSocket connection and start the player
@@ -67,6 +38,5 @@
 		var canvas = document.getElementById('videoCanvas');
 		var player = new jsmpeg(client, {canvas:canvas});
 	</script>
-
 </body>
 </html>
