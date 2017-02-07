@@ -1,5 +1,34 @@
 // app/routes.js
+var sensor = require('node-dht-sensor');
+
 module.exports = function(app, passport) {
+
+
+
+	//API FOR HUMIDITY SENSOR
+		app.get('/temperature', isLoggedIn, function(req, res) {
+
+			var sensorResult = null;
+
+			sensor.read(11, 4, function(err, temperature, humidity) {
+					    if (!err) {
+
+					    	sensorResult = {'TemperatureC':temperature.toFixed(1),
+					    					'HumidityPercent':humidity.toFixed(1)};
+
+					        console.log('temp: ' + temperature.toFixed(1) + '°C, ' +
+					            'humidity: ' + humidity.toFixed(1) + '%'
+					        );
+					    }
+					});
+
+
+			res.send(sensorResult);
+
+		});
+
+
+
 
 	// =====================================
 	// HOME PAGE (with login links) ========
@@ -9,7 +38,7 @@ module.exports = function(app, passport) {
 		res.render('profile.ejs', {
 			user : req.user // get the user out of session and pass to template
 		});
-	});
+		});
 
 	//app.get('/', function(req, res) {
 
