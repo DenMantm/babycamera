@@ -65,13 +65,6 @@
 	<script type="text/javascript" src="script.js"></script>
 	
 	<script type="text/javascript">
-	    $.ajax({url: "/temperature", success: function(result){
-    	console.log(result);
-        $("#val_temperature").html(result.TemperatureC+"C");
-		$("#val_humidity").html(result.HumidityPercent+"%");
-        
-    }});
-	
 		// Setup the WebSocket connection and start the player
 		//var client = new WebSocket( 'ws://192.168.0.234:8084/' );
 			var client = new WebSocket( 'ws://127.0.0.1:8084');
