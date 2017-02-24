@@ -1,11 +1,14 @@
 // app/routes.js
-var sensor = require('node-dht-sensor');
+
+//var sensor = require('node-dht-sensor');
 
 module.exports = function(app, passport) {
 
 
 
 	//API FOR HUMIDITY SENSOR
+	/*
+	
 		app.get('/temperature', isLoggedIn, function(req, res) {
 
 			var sensorResult = null;
@@ -28,9 +31,21 @@ module.exports = function(app, passport) {
 			
 
 		});
+*/
 
-
-
+	//Login and signup root::
+			app.get('/details', function(req, res) {
+		// render the page and pass in any flash data if it exists
+		res.render('signup_login.ejs');
+				});
+	
+	//creating main landing page not logged in
+			app.get('/welcome', function(req, res) {
+		// render the page and pass in any flash data if it exists
+		res.render('index_landing_page.ejs');
+				});
+	
+	
 
 	// =====================================
 	// HOME PAGE (with login links) ========

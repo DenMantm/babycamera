@@ -35,6 +35,7 @@ app.configure(function() {
 	app.use(express.static(path.join(__dirname, 'pub')));
 });
 
+
 // routes ======================================================================
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
@@ -42,7 +43,7 @@ require('./app/routes.js')(app, passport); // load our routes and pass in our ap
 //app.listen(port);
 
 
-
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
