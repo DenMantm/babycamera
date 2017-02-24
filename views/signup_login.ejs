@@ -61,18 +61,8 @@
     <script type="text/javascript" src="packages/metro/js/metro.min.js"></script>
     
     <script>
-      $(function(){
-            var form = $(".login-form");
-
-            form.css({
-                opacity: 1,
-                "-webkit-transform": "scale(1)",
-                "transform": "scale(1)",
-                "-webkit-transition": ".5s",
-                "transition": ".5s"
-            });
-        });
-        function transform_back(){
+        
+        function transform_down(){
                         var form = $(".login-form");
 
             form.css({
@@ -84,6 +74,20 @@
             });
             
         };
+        
+                function transform_up(){
+                        var form = $(".login-form");
+
+            form.css({
+                opacity: 1,
+                "-webkit-transform": "scale(1)",
+                "transform": "scale(1)",
+                "-webkit-transition": ".5s",
+                "transition": ".5s"
+            });
+            
+        };
+        
         
         
     </script>

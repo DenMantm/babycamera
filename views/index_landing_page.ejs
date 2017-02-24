@@ -49,7 +49,7 @@ body {
 
 .box {
   width: 100%;
-  height: 100%;
+  height: 200px;
   left: -webkit-calc( 50% - 250px);
   top: 20%;
   border-radius: 5px;
@@ -123,11 +123,38 @@ h3{
 
 #banner { background: url('resources/img/IMG_488278_banner.jpg') no-repeat fixed 50% 0; background-size: cover; color: #fff; height: 100%; width: 100%; }
 
-#bannertext { width: 24em; position: fixed; top: 20%; left: 50%; border: .5em solid #fff; margin-left: -12em; padding: 2em 0; }
+#bannertext { width: 24em; position: fixed; top: 20%; left: 50%; border: .5em solid #fff; margin-left: -12em; padding: 1em 0; }
 
-#content { max-width: 28em; text-align: justify; margin: 0 auto; padding: 2em; }
+#content { max-width: 28em; text-align: justify; margin: 0 auto; padding: 1em; }
 
 #content p { margin: 0 0 2em; }
+                
+                
+/*CSS FOR MAIN BODY CONTAINER                */
+
+.main_body_container{
+    margin-left:5%;
+    margin-right:5%;
+    
+}
+#bannertext{text-align: center;}
+                
+/*LOGIN WINDOW               */
+
+        .login-form {
+            width: 25rem;
+            height: 18.75rem;
+            position: fixed;
+            top: 50%;
+            margin-top: -9.375rem;
+            left: 50%;
+            margin-left: -12.5rem;
+            background-color: #ffffff;
+            opacity: 0;
+            -webkit-transform: scale(.8);
+            transform: scale(.8);
+        }
+                
                 
             </style>
 
@@ -141,7 +168,7 @@ h3{
 <div id="banner">
 	<div id="bannertext">
 		<h3>WELCOME To My Baby Cam</h3>
-		<p>Please login...</p>
+		<p><button class="button success block-shadow-success text-shadow">Login</button></p>
 	</div>
 </div>
 
@@ -155,7 +182,8 @@ h3{
         <!--</div>-->
     
     <!--Features described-->
-
+    <h3>What to expect from My Baby Cam?</h3>
+            <hr>
             <div class="grid demo-grid">
                 
                 <div class="row cells4">
@@ -201,6 +229,37 @@ h3{
         
     </div> <!--end of main_body_container-->
 
+
+        <!--LOGIN FORM HERE -->
+    <div class="login-form padding20 block-shadow">
+        <form>
+            <h1 class="text-light">Login to service</h1>
+            <hr class="thin"/>
+            <br />
+            <div class="input-control text full-size" data-role="input">
+                <label for="user_login">User email:</label>
+                <input type="text" name="user_login" id="user_login">
+                <button class="button helper-button clear"><span class="mif-cross"></span></button>
+            </div>
+            <br />
+            <br />
+            <div class="input-control password full-size" data-role="input">
+                <label for="user_password">User password:</label>
+                <input type="password" name="user_password" id="user_password">
+                <button class="button helper-button reveal"><span class="mif-looks"></span></button>
+            </div>
+            <br />
+            <br />
+            <div class="form-actions">
+                <button id='login_button' type="submit" class="button primary">Login to my cam</button>
+                <button id='cancel_login_button' type="button" class="button link">Cancel</button>
+            </div>
+        </form>
+    </div>
+    
+    
+
+
     
     <!--Dependant scripts -->
 	 <!--Adding scripts to the end-->
@@ -222,7 +281,69 @@ $(document).ready(function(){
 	$(window).scroll(function() {
 		EasyPeasyParallax();
 	});
+	
+	
+	        //login form script::
+
+                  
+               $('#login_button').click(function (){
+                        var form = $(".login-form");
+
+            form.css({
+                opacity: 1,
+                "-webkit-transform": "scale(1)",
+                "transform": "scale(1)",
+                "-webkit-transition": ".5s",
+                "transition": ".5s"
+            });
+            
+               });
+        
+        
+        $('#cancel_login_button').click(
+            function(){
+            var form = $(".login-form");
+            form.css({
+                opacity: 0,
+                "-webkit-transform": "scale(1)",
+                "transform": "scale(1)",
+                "-webkit-transition": ".5s",
+                "transition": ".5s"
+            });
+            
+            });
+        
+        
+     
+	
+	
+	
 });
+
+
+
+                  
+                  
+
+
+        
+        
+        
+
+        
+                function transform_down(){
+            var form = $(".login-form");
+
+            form.css({
+                opacity: 1,
+                "-webkit-transform": "scale(1)",
+                "transform": "scale(1)",
+                "-webkit-transition": ".5s",
+                "transition": ".5s"
+            });
+            
+        };
+
     
     
 </script>
